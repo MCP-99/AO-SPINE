@@ -9,6 +9,8 @@ Primary screening tool: **Rayyan** (rayyan.ai) — title/abstract screening for 
 
 `rayyan_37_ai_draft_screening.csv` is a **draft, Claude-assisted first pass** over the 37 Rayyan records against the protocol's eligibility criteria (§4) — see "AI-assisted draft pass" below for how to use it without compromising reviewer independence.
 
+`Screening_AO_Spine.xlsx` is the file to send to co-investigators who don't have Rayyan access, or who prefer to work offline: it has an "Instrucciones" tab (PICO, inclusion/exclusion criteria, decision rule), the 37 Rayyan records with title+abstract, and the 10 Cochrane records (title only — no abstract available, see the tab's note). It ships blank (no AI draft decisions) so it doesn't bias independent screening.
+
 ## Simple screening rule (per project summary)
 
 - **INCLUDE** if: uses the AO Spine classification AND reports at least one of the outcomes (neurological recovery, complications, reoperation, PROMs).
