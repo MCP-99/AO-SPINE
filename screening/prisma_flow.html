@@ -52,10 +52,6 @@
 <h1>Diagrama de Flujo PRISMA 2020</h1>
 <p class="subtitle">Validez predictiva de clasificaciones AO Spine · Búsqueda: agosto 2026</p>
 
-<div class="warning">
-  <strong>Pendiente de confirmar:</strong> el screening manual de Cochrane CENTRAL registró 10 títulos, pero la búsqueda original reporta n=9 para esa base. Los campos de abajo asumen n=9 (total identificado = 60). Si se confirman 10, actualizar a 61 identificados y 57 para screening. Ver <code>screening/screening_tracking_template.csv</code> y <code>search_strategy/search_strategies.md</code>.
-</div>
-
 <div class="diagram">
 
   <!-- IDENTIFICACIÓN -->
@@ -68,7 +64,7 @@
       </div>
       <div class="source-box">
         <div class="source-name">Cochrane CENTRAL</div>
-        <div class="source-n">9*</div>
+        <div class="source-n">10</div>
       </div>
       <div class="source-box">
         <div class="source-name">LILACS (BVS)</div>
@@ -78,7 +74,7 @@
     <div class="row2">
       <div class="box blue">
         <div class="box-label">Total registros identificados</div>
-        <span class="box-n">60*</span>
+        <span class="box-n">61</span>
         <div class="box-detail">3 bases de datos</div>
       </div>
       <div class="box red">
@@ -89,8 +85,8 @@
     </div>
     <div class="box blue">
       <div class="box-label">Registros para screening</div>
-      <input class="box-input" type="number" value="56" />
-      <div class="box-detail">47 en Rayyan (PubMed+LILACS) + 9* manual (Cochrane)</div>
+      <input class="box-input" type="number" value="57" />
+      <div class="box-detail">47 en Rayyan (PubMed+LILACS) + 10 manual (Cochrane)</div>
     </div>
   </div>
 
@@ -102,12 +98,12 @@
     <div class="row2" style="margin-bottom:8px;">
       <div class="box green">
         <div class="box-label">Cribados (título/abstract)</div>
-        <input class="box-input" type="number" value="56" />
+        <input class="box-input" type="number" value="57" />
       </div>
       <div class="box red">
         <div class="box-label">Excluidos título/abstract</div>
         <input class="box-input" type="number" placeholder="n=?" />
-        <textarea class="box-textarea" placeholder="Razones principales...">Cochrane manual (8 de 9-10): sin clasificación AO Spine explícita, sin outcomes relevantes, o registro de ensayo sin datos extraíbles. Pendiente: resultado del screening Rayyan (47 registros PubMed+LILACS).</textarea>
+        <textarea class="box-textarea" placeholder="Razones principales...">Cochrane manual (8 de 10, 1 revisor — falta 2do revisor): sin clasificación AO Spine explícita, sin outcomes relevantes, o registro de ensayo sin datos extraíbles. Pendiente: resultado del screening Rayyan (47 registros PubMed+LILACS).</textarea>
       </div>
     </div>
     <div class="row2">
@@ -156,7 +152,7 @@
 
 </div>
 
-<p class="note">PRISMA 2020 · Page et al., BMJ 2021 · Total identificados: 60* (PubMed=35, Cochrane=9*, LILACS=16) · * pendiente de confirmar (ver aviso arriba)</p>
+<p class="note">PRISMA 2020 · Page et al., BMJ 2021 · Total identificados: 61 (PubMed=35, Cochrane=10, LILACS=16)</p>
 <button class="btn-print" onclick="window.print()">Imprimir / Guardar PDF</button>
 
 </body>
