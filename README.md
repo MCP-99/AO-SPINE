@@ -10,9 +10,9 @@ Ver **[`PROGRESS.md`](PROGRESS.md)** para el estado actual y los próximos pasos
 
 | Carpeta | Contenido |
 |---|---|
-| `protocol/` | Protocolo PROSPERO (EN/ES, docx + markdown). **Ver nota de discrepancia de versiones en `protocol/README.md`.** |
+| `protocol/` | Protocolo PROSPERO (EN/ES, docx + markdown, sincronizados). |
 | `search_strategy/` | Estrategias de búsqueda ejecutadas por base de datos y resultados. |
-| `screening/` | Template de seguimiento de screening (complementa Rayyan) e instrucciones. |
+| `screening/` | Template de seguimiento de screening (complementa Rayyan), diagrama de flujo PRISMA 2020 (`prisma_flow.html`) e instrucciones. |
 | `data_extraction/` | Formulario de extracción de datos (CSV) y diccionario de variables. |
 | `risk_of_bias/` | Templates NOS (cohortes) y RoB 2.0 (ECAs) con guías de puntuación. |
 | `analysis/` | Script R (`meta`, `metafor`) que implementa el plan estadístico del protocolo §8. |

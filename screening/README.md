@@ -20,8 +20,18 @@ Primary screening tool: **Rayyan** (rayyan.ai) — title/abstract screening for 
 
 ## Record counts (confirmed by PI, 2026-09-17)
 
-- 60 records identified (35 PubMed + 9 Cochrane CENTRAL + 16 LILACS).
+- 60 records identified (35 PubMed + 9\* Cochrane CENTRAL + 16 LILACS).
 - 47 records in Rayyan for title/abstract screening (PubMed + LILACS, deduplicated).
-- 9 Cochrane CENTRAL records screened manually outside Rayyan (not importable — format incompatibility).
+- 9\* Cochrane CENTRAL records screened manually outside Rayyan (not importable — format incompatibility).
 
-See `search_strategy/search_strategies.md` for the full reconciliation, now used as the basis for the PRISMA 2020 flow diagram.
+\* **Open discrepancy:** manual screening actually produced 10 titles (`COCH-01`…`COCH-10` in `screening_tracking_template.csv`), not 9. Pending PI confirmation of which count is right — see `PROGRESS.md` bloqueador #3.
+
+See `search_strategy/search_strategies.md` for the full reconciliation, and `prisma_flow.html` for the flow diagram (marked with `*` where numbers depend on this open item).
+
+## Cochrane CENTRAL manual screening — status
+
+Title/abstract screening done by one reviewer (`screening_tracking_template.csv`, rows `COCH-01`–`COCH-10`):
+- **8 excluded** — mostly: doesn't use the AO Spine classification to predict outcomes, or is a trial registry without extractable outcome data.
+- **2 to full-text review** — `COCH-01` (TLICS, 2023 Türkiye earthquake cohort) and `COCH-10` (direct decompression for thoracolumbar burst fractures with neurological compromise).
+
+Still needed per protocol §6.1: a second, independent reviewer for these records, then consensus/third-reviewer for any disagreement.
