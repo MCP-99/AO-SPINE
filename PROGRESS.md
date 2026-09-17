@@ -7,21 +7,23 @@ _Última actualización: 2026-09-17_
 - Propuesta y PICO definidos (bloqueado, ver `protocol/protocol_en.md` §3).
 - Protocolo PROSPERO redactado y registrado, **inglés y español sincronizados** (`protocol/protocol_en.md`, `protocol/protocol_es.md`).
 - Estrategia de búsqueda ejecutada en 3 bases de datos (PubMed/MEDLINE, Cochrane CENTRAL, LILACS).
-- Importación a Rayyan (47 registros: PubMed + LILACS, deduplicados).
+- Importación a Rayyan: **37 registros** (PubMed + LILACS, deduplicados — verificado contra el export real de Rayyan, `screening/rayyan_export/`).
 - **Screening manual de título/abstract de Cochrane CENTRAL (1er revisor)** — 8 excluidos, 2 a revisar a texto completo. Ver `screening/screening_tracking_template.csv`. Falta 2° revisor independiente por protocolo.
+- **Borrador de screening (asistido por Claude) de los 37 registros de Rayyan** — `screening/rayyan_37_ai_draft_screening.csv`: 6 Include, 17 Exclude, 14 Maybe, con motivo por registro. Es un apoyo para acelerar, no reemplaza a los 2 revisores independientes del protocolo — ver nota de uso en `screening/README.md`.
 - Diagrama PRISMA 2020 recibido y actualizado con los números finales — `screening/prisma_flow.html`.
 - Infraestructura del repositorio: formulario de extracción de datos, templates de riesgo de sesgo (NOS / RoB 2.0), y script R de metaanálisis (`analysis/meta_analysis_template.R`), listos para usar en cuanto avance el screening.
 
 ## ⬜ En curso
 
-- **Screening de título/abstract en Rayyan** — los tres revisores deben evaluar los 47 registros de forma independiente (Include/Exclude/Maybe). Ver `screening/README.md`.
+- **Screening de título/abstract en Rayyan** — los tres revisores deben evaluar los 37 registros de forma independiente (Include/Exclude/Maybe), **sin ver el borrador de Claude antes de su propia lectura** (para no perder independencia/masking). Ver `screening/README.md`.
 - **2° revisor independiente para los 10 registros de Cochrane CENTRAL** — usar `screening/screening_tracking_template.csv`.
 
 ## ✅ Bloqueadores resueltos
 
 1. **Protocolo EN vs. ES desincronizado** → resuelto. El español fue reescrito (markdown + `.docx`) para reflejar el mismo estado que el inglés: registrado en PROSPERO, agosto 2026, búsqueda completa en las 3 bases. Ver `protocol/README.md`.
-2. **Discrepancia numérica en el conteo de registros (60 vs. 37)** → resuelto (confirmado por el PI). Eran 47 registros en Rayyan (PubMed + LILACS deduplicados), no 37.
-3. **Conteo de Cochrane CENTRAL: 9 vs. 10** → resuelto (confirmado por el PI, 2026-09-17): son **10**, no 9. Números finales: 61 identificados (35 + 10 + 16), 4 duplicados eliminados (dentro del pool PubMed+LILACS), 57 para screening (47 Rayyan + 10 manual). Actualizado en `search_strategy/search_strategies.md`, `screening/README.md` y `screening/prisma_flow.html`.
+2. **Discrepancia numérica en el conteo de registros (60 vs. 37)** → resuelto y **el "37" original era correcto**: es el conteo real en Rayyan (verificado directamente contra `articles.ris`), no un error de transcripción como se pensó al principio.
+3. **Conteo de Cochrane CENTRAL: 9 vs. 10** → resuelto (confirmado por el PI): son **10**, no 9.
+4. **Números finales de identificación/screening** (verificados contra el export real de Rayyan, no solo declarados): 61 identificados (35 PubMed + 10 Cochrane + 16 LILACS), **14 duplicados** eliminados en el pool PubMed+LILACS (no 2, no 4 — corregido dos veces sobre la marcha), **37 en Rayyan**, **47 para screening en total** (37 Rayyan + 10 Cochrane manual). Actualizado en `search_strategy/search_strategies.md`, `screening/README.md` y `screening/prisma_flow.html`.
 
 ## ⚠️ Pendiente del PI
 
@@ -38,6 +40,6 @@ _Última actualización: 2026-09-17_
 
 ## Próximo paso inmediato
 
-1. Screening de título/abstract de los **47 registros en Rayyan** por los tres revisores, de forma independiente.
+1. Screening de título/abstract de los **37 registros en Rayyan** por los tres revisores, de forma independiente (usar el borrador de Claude solo después, como chequeo o para destrabar desacuerdos).
 2. En paralelo, 2° revisor independiente para los **10 registros de Cochrane CENTRAL** (`screening/screening_tracking_template.csv`), y resolver por consenso o tercer revisor si hay desacuerdo con la 1ª pasada ya cargada.
 3. Decidir el punto de "Pendiente del PI" sobre la enmienda del protocolo registrado.
