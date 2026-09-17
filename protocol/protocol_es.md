@@ -1,5 +1,3 @@
-> **⚠️ NOTA (ver `README.md` de este directorio):** esta versión en español está fechada junio 2025, indica "Pendiente de registro en PROSPERO" y solo reporta la búsqueda en PubMed (EMBASE, Cochrane y LILACS figuran como "Pendiente"). Es una versión **anterior** a `protocol_en.md` (agosto 2026, ya registrado en PROSPERO, búsqueda completa en 3 bases sin EMBASE). Transcripta tal cual del archivo original recibido — pendiente de actualización para que ambos idiomas coincidan.
-
 # Protocolo de Revisión Sistemática con Metaanálisis
 
 **Registro PROSPERO**
@@ -9,8 +7,8 @@ Validez predictiva de las clasificaciones AO Spine subaxial cervical y toracolum
 | Campo | Valor |
 |---|---|
 | Versión del protocolo | 1.0 |
-| Fecha de elaboración | Junio 2025 |
-| Estado | Pendiente de registro en PROSPERO |
+| Fecha de elaboración | Agosto 2026 |
+| Estado | Registrado en PROSPERO |
 | Investigador principal | Yaven, Ignacio, MD — CEMIC, Argentina |
 | Co-investigadores | Gobbi, Enrique, MD — CEMIC, Argentina; Costa Paz, Matias, MD — CEMIC, Argentina |
 | Financiamiento | Sin financiamiento externo declarado |
@@ -72,20 +70,18 @@ Evaluar la validez predictiva de las clasificaciones AO Spine subaxial cervical 
 
 ## 5. Estrategia de búsqueda bibliográfica
 
-*(Nota: sección desactualizada — ver `protocol_en.md` §5 para la estrategia final ejecutada en PubMed/MEDLINE, Cochrane CENTRAL y LILACS, sin EMBASE.)*
+Se realizó una búsqueda sistemática y exhaustiva en las siguientes bases de datos: PubMed/MEDLINE, Cochrane Central Register of Controlled Trials (CENTRAL) y LILACS (literatura latinoamericana vía BVS). Se revisaron manualmente las listas de referencias de los estudios incluidos y los resúmenes de congresos AO Spine (últimos 5 años). Se buscó literatura gris en ClinicalTrials.gov. No se buscó en EMBASE por falta de acceso institucional; esta limitación se reconoce en el manuscrito.
 
-Se realizará una búsqueda sistemática y exhaustiva en las siguientes bases de datos: PubMed/MEDLINE, EMBASE (Elsevier), Cochrane Central Register of Controlled Trials (CENTRAL), y LILACS (para literatura latinoamericana). Adicionalmente, se revisarán manualmente las listas de referencias de los estudios incluidos y los registros de congresos AO Spine (últimos 5 años). Se buscará literatura gris en ClinicalTrials.gov y WHO ICTRP.
+Los términos principales incluyen: AO Spine classification, TLICS, SLIC, subaxial cervical fracture, thoracolumbar fracture, neurological recovery, surgical complications, reoperation, predictive validity. Se aplicó la técnica de expansión por términos MeSH y texto libre. Sin restricción de fecha de publicación. Se incluyeron artículos en inglés, español y portugués.
 
-Los términos principales incluyen: AO Spine classification, TLICS, SLIC, subaxial cervical fracture, thoracolumbar fracture, neurological recovery, surgical complications, reoperation, predictive validity. Se aplicará la técnica de expansión por términos MeSH y texto libre. No se establecerán restricciones de fecha de publicación. Se incluirán artículos en inglés, español y portugués.
-
-### 5.1 Resultados de búsqueda preliminar (desactualizado)
+### 5.1 Resultados de búsqueda
 
 | Base de datos | Fecha de búsqueda | Período cubierto | Resultados |
 |---|---|---|---|
-| PubMed/MEDLINE | 4 de junio de 2026 | 2011 – a la fecha | n = 35 |
-| EMBASE | Pendiente | 2016 – a la fecha | Pendiente |
-| Cochrane CENTRAL | Pendiente | 2016 – a la fecha | Pendiente |
-| LILACS | Pendiente | 2016 – a la fecha | Pendiente |
+| PubMed/MEDLINE | 12 de agosto de 2026 | 2011 – a la fecha | n = 35 |
+| Cochrane CENTRAL | 12 de agosto de 2026 | 2016 – a la fecha | n = 9 |
+| LILACS (BVS) | 12 de agosto de 2026 | 2016 – a la fecha | n = 16 |
+| **TOTAL** | | | **n = 60** |
 
 ## 6. Proceso de selección y extracción de datos
 
@@ -106,15 +102,15 @@ Los términos principales incluyen: AO Spine classification, TLICS, SLIC, subaxi
 
 ## 7. Evaluación del riesgo de sesgo
 
-- Estudios de cohorte prospectivos y retrospectivos: Newcastle-Ottawa Scale (NOS).
+- Estudios de cohorte: Newcastle-Ottawa Scale (NOS). Alto riesgo definido como NOS ≤5/9.
 - Ensayos clínicos controlados aleatorizados: herramienta RoB 2.0 de Cochrane.
-- Se considerará alto riesgo de sesgo cuando el score NOS sea ≤5/9. Los desacuerdos serán resueltos por consenso.
+- Los desacuerdos serán resueltos por consenso.
 
 ## 8. Síntesis cuantitativa (metaanálisis)
 
 ### 8.1 Medidas de efecto
 
-- Outcomes binarios: odds ratio (OR) con IC 95%, modelo de efectos aleatorios DerSimonian-Laird.
+- Outcomes binarios: odds ratio (OR) agrupado con IC 95%, modelo de efectos aleatorios (DerSimonian-Laird).
 - Outcomes continuos: diferencia de medias estandarizada (SMD) con IC 95%.
 
 ### 8.2 Heterogeneidad
@@ -135,21 +131,21 @@ Funnel plot + prueba de Egger o Begg si n ≥10 estudios. Análisis trim-and-fil
 
 ### 8.5 Software
 
-RevMan 5.4 y R versión ≥4.3 con paquetes `meta` y `metafor`.
+RevMan 5.4 y R ≥4.3 con paquetes `meta` y `metafor`.
 
 ## 9. Registro y transparencia
 
-Este protocolo será registrado en PROSPERO (Centre for Reviews and Dissemination, University of York) previo al inicio de la extracción de datos. El reporte final seguirá la declaración PRISMA 2020 y la extensión PRISMA-P 2015 para protocolos.
+Este protocolo está registrado en PROSPERO (Centre for Reviews and Dissemination, University of York). El reporte final seguirá la declaración PRISMA 2020 y la extensión PRISMA-P 2015 para protocolos.
 
-## 10. Cronograma estimado (desactualizado)
+## 10. Cronograma estimado
 
 | Fase | Actividad | Duración estimada |
 |---|---|---|
-| Fase 1 | Registro PROSPERO + refinamiento protocolo | 2 semanas |
-| Fase 2 | Búsqueda bibliográfica formal + gestión en Rayyan | 2–3 semanas |
+| Fase 1 | Registro PROSPERO + refinamiento del protocolo | Completada |
+| Fase 2 | Búsqueda bibliográfica formal + gestión en Rayyan | Completada |
 | Fase 3 | Selección de estudios (título/abstract + texto completo) | 4 semanas |
 | Fase 4 | Extracción de datos (formulario estandarizado) | 4–6 semanas |
-| Fase 5 | Evaluación riesgo de sesgo (NOS / RoB 2.0) | 2 semanas |
+| Fase 5 | Evaluación de riesgo de sesgo (NOS / RoB 2.0) | 2 semanas |
 | Fase 6 | Síntesis cuantitativa (metaanálisis en R / RevMan) | 3–4 semanas |
 | Fase 7 | Redacción del manuscrito | 4–6 semanas |
 | Fase 8 | Revisión por co-autores + envío a Global Spine Journal | 2 semanas |
@@ -168,3 +164,7 @@ Este protocolo será registrado en PROSPERO (Centre for Reviews and Disseminatio
 3. Page MJ, et al. The PRISMA 2020 statement: an updated guideline for reporting systematic reviews. BMJ. 2021.
 4. Higgins JPT, et al. Cochrane Handbook for Systematic Reviews of Interventions. Version 6.4. 2023.
 5. Stroup DF, et al. Meta-analysis of observational studies in epidemiology: a proposal for reporting (MOOSE). JAMA. 2000.
+
+---
+Investigador principal: Yaven, Ignacio, MD — CEMIC
+Co-investigadores: Gobbi, Enrique, MD — CEMIC; Costa Paz, Matias, MD — CEMIC

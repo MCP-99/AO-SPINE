@@ -1,6 +1,6 @@
 # Screening
 
-Primary screening tool: **Rayyan** (rayyan.ai) — title/abstract screening for the imported records.
+Primary screening tool: **Rayyan** (rayyan.ai) — title/abstract screening for the **47 imported records** (PubMed + LILACS, deduplicated).
 
 `screening_tracking_template.csv` is a companion log, useful for:
 - The **9 Cochrane CENTRAL records that could not be imported into Rayyan** (must be screened manually — enter them here).
@@ -18,6 +18,10 @@ Primary screening tool: **Rayyan** (rayyan.ai) — title/abstract screening for 
 2. Stage 2 (full text): eligibility of all preselected studies assessed against `protocol/protocol_en.md` §4; document every exclusion reason.
 3. Export Rayyan decisions periodically and reconcile with `screening_tracking_template.csv`, especially for the 9 manually-screened Cochrane records.
 
-## Open item
+## Record counts (confirmed by PI, 2026-09-17)
 
-See `search_strategy/search_strategies.md` — the "60 identified → 2 duplicates → 37 for screening" numbers don't reconcile arithmetically. Confirm the real numbers before drawing the PRISMA 2020 flow diagram.
+- 60 records identified (35 PubMed + 9 Cochrane CENTRAL + 16 LILACS).
+- 47 records in Rayyan for title/abstract screening (PubMed + LILACS, deduplicated).
+- 9 Cochrane CENTRAL records screened manually outside Rayyan (not importable — format incompatibility).
+
+See `search_strategy/search_strategies.md` for the full reconciliation, now used as the basis for the PRISMA 2020 flow diagram.

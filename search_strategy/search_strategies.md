@@ -15,13 +15,16 @@ Source: `protocol/protocol_en.md` §5 (executed search, as registered in PROSPER
 - EMBASE and Scopus excluded — no institutional access at CEMIC.
 - The 9 Cochrane CENTRAL records could not be imported into Rayyan due to a format incompatibility; these must be screened manually outside Rayyan (see `screening/README.md`).
 
-## ⚠️ Record-count reconciliation needed
+## Record-count reconciliation (resolved 2026-09-17, confirmed by PI)
 
-`Resumen_Proyecto_AOSpine.md` states 2 duplicates were removed and 37 records are ready for screening, but 60 − 2 = 58, not 37. Possible explanations to confirm with the PI:
-1. The 9 Cochrane records (not importable into Rayyan) are being tracked separately and are not part of the "37 in Rayyan" count, plus additional exclusions were applied before screening.
-2. A transcription error in one of the counts (dedup count, or the 37).
+The "37 records" figure in the original project summary was a transcription error. The correct breakdown, per PI confirmation:
 
-This should be resolved before finalizing the PRISMA 2020 flow diagram — see `screening/README.md`.
+- PubMed/MEDLINE (35) + LILACS (16) = 51 records combined and imported into Rayyan.
+- **47 records** currently in Rayyan for title/abstract screening (after deduplication within these two sources).
+- **9 Cochrane CENTRAL records** could not be imported into Rayyan (format incompatibility) and are tracked separately for manual screening — see `screening/README.md`.
+- 47 (Rayyan) + 9 (manual) = 56 of the 60 identified records are accounted for in some screening workflow; the remaining 4 correspond to duplicates removed during the PubMed+LILACS merge.
+
+This is the figure to use for the PRISMA 2020 flow diagram (identification: n = 60; duplicates removed: n = 4; records screened: n = 56, split 47 in Rayyan + 9 manual).
 
 ## Full search strings
 
