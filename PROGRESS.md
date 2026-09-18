@@ -1,6 +1,6 @@
 # Estado del proyecto
 
-_Última actualización: 2026-09-17_
+_Última actualización: 2026-09-18_
 
 ## ✅ Completado
 
@@ -11,7 +11,10 @@ _Última actualización: 2026-09-17_
 - **Screening manual de título/abstract de Cochrane CENTRAL (1er revisor)** — 8 excluidos, 2 a revisar a texto completo. Ver `screening/screening_tracking_template.csv`. Falta 2° revisor independiente por protocolo.
 - **Borrador de screening (asistido por Claude) de los 37 registros de Rayyan** — `screening/rayyan_37_ai_draft_screening.csv`: 6 Include, 17 Exclude, 14 Maybe, con motivo por registro. Es un apoyo para acelerar, no reemplaza a los 2 revisores independientes del protocolo — ver nota de uso en `screening/README.md`.
 - Diagrama PRISMA 2020 recibido y actualizado con los números finales — `screening/prisma_flow.html`.
+- `Screening_AO_Spine.xlsx` enviado a los co-investigadores: los 37 de Rayyan (título+resumen) y los 10 de Cochrane (con autores, fuente y link directo a Cochrane Library), sin decisiones precargadas.
 - Infraestructura del repositorio: formulario de extracción de datos, templates de riesgo de sesgo (NOS / RoB 2.0), y script R de metaanálisis (`analysis/meta_analysis_template.R`), listos para usar en cuanto avance el screening.
+- **Corregido un bug real en el script de R** (2026-09-18): usaba `metabin`/`metacont` con el brazo comparador vacío (`NA`), lo que no habría corrido. Reescrito con `metaprop`/`metamean` (proporciones/medias de un solo brazo por subgrupo AO, comparadas entre subgrupos vía `subgroup=`), acorde al diseño real de `data_extraction_form.csv` (una fila por estudio × subgrupo AO). No pude ejecutar el script en este entorno (no hay R instalable acá), así que quedó revisado a mano pero no corrido — probarlo con datos reales o de prueba antes de confiar en el output.
+- **Planilla de elegibilidad a texto completo** (`screening/fulltext_eligibility_template.csv` + `fulltext_eligibility_guide.md`) — lista para la etapa 2 del screening (protocolo §6.1), con una columna por criterio de inclusión y categorías de exclusión para alimentar el diagrama PRISMA.
 
 ## ⬜ En curso
 
@@ -31,7 +34,7 @@ _Última actualización: 2026-09-17_
 
 ## ⬜ Pendiente
 
-1. Screening texto completo (artículos que pasen el primer filtro) — `screening/`.
+1. Screening texto completo (artículos que pasen el primer filtro) — `screening/fulltext_eligibility_template.csv`.
 2. Extracción de datos con el formulario estandarizado — `data_extraction/data_extraction_form.csv`.
 3. Evaluación de riesgo de sesgo (NOS / RoB 2.0) — `risk_of_bias/`.
 4. Análisis estadístico (R: `meta` + `metafor`, o RevMan 5.4) — `analysis/meta_analysis_template.R`.
