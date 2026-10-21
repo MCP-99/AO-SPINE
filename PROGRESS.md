@@ -1,48 +1,56 @@
 # Estado del proyecto
 
-_Última actualización: 2026-09-18_
+_Última actualización: 2026-10-21_
 
 ## ✅ Completado
 
 - Propuesta y PICO definidos (bloqueado, ver `protocol/protocol_en.md` §3).
 - Protocolo PROSPERO redactado y registrado, **inglés y español sincronizados** (`protocol/protocol_en.md`, `protocol/protocol_es.md`).
 - Estrategia de búsqueda ejecutada en 3 bases de datos (PubMed/MEDLINE, Cochrane CENTRAL, LILACS).
-- Importación a Rayyan: **37 registros** (PubMed + LILACS, deduplicados — verificado contra el export real de Rayyan, `screening/rayyan_export/`).
-- **Screening manual de título/abstract de Cochrane CENTRAL (1er revisor)** — 8 excluidos, 2 a revisar a texto completo. Ver `screening/screening_tracking_template.csv`. Falta 2° revisor independiente por protocolo.
-- **Borrador de screening (asistido por Claude) de los 37 registros de Rayyan** — `screening/rayyan_37_ai_draft_screening.csv`: 6 Include, 17 Exclude, 14 Maybe, con motivo por registro. Es un apoyo para acelerar, no reemplaza a los 2 revisores independientes del protocolo — ver nota de uso en `screening/README.md`.
-- Diagrama PRISMA 2020 recibido y actualizado con los números finales — `screening/prisma_flow.html`.
-- `Screening_AO_Spine.xlsx` enviado a los co-investigadores: los 37 de Rayyan (título+resumen) y los 10 de Cochrane (con autores, fuente y link directo a Cochrane Library), sin decisiones precargadas.
-- Infraestructura del repositorio: formulario de extracción de datos, templates de riesgo de sesgo (NOS / RoB 2.0), y script R de metaanálisis (`analysis/meta_analysis_template.R`), listos para usar en cuanto avance el screening.
-- **Corregido un bug real en el script de R** (2026-09-18): usaba `metabin`/`metacont` con el brazo comparador vacío (`NA`), lo que no habría corrido. Reescrito con `metaprop`/`metamean` (proporciones/medias de un solo brazo por subgrupo AO, comparadas entre subgrupos vía `subgroup=`), acorde al diseño real de `data_extraction_form.csv` (una fila por estudio × subgrupo AO). No pude ejecutar el script en este entorno (no hay R instalable acá), así que quedó revisado a mano pero no corrido — probarlo con datos reales o de prueba antes de confiar en el output.
-- **Planilla de elegibilidad a texto completo** (`screening/fulltext_eligibility_template.csv` + `fulltext_eligibility_guide.md`) — lista para la etapa 2 del screening (protocolo §6.1), con una columna por criterio de inclusión y categorías de exclusión para alimentar el diagrama PRISMA.
+- Importación a Rayyan: **37 registros** (PubMed + LILACS, deduplicados).
+- **Screening de título/abstract completado por los 3 revisores, consenso cargado** (2026-10-21) — `screening/Screening_AO_Spine_consensus.xlsx`, consolidado en `screening/rayyan_37_consensus_final.csv` y `screening/screening_tracking_template.csv`. Resultado consenso: Rayyan 11 Include / 25 Exclude / 1 sin marcar; Cochrane 4 Include / 6 Exclude.
+- Infraestructura del repositorio: formulario de extracción de datos, templates de riesgo de sesgo (NOS / RoB 2.0), script R de metaanálisis, y planilla de elegibilidad a texto completo — listos para la siguiente etapa.
+
+## ⚠️ Pendiente de confirmar antes de cerrar el screening de título/abstract (2026-10-21)
+
+Al cruzar el consenso contra el borrador propio y las evaluaciones previas, aparecieron items que conviene que el equipo revise antes de dar por cerrada esta etapa — podrían cambiar el número de artículos que pasan a texto completo:
+
+1. **7 registros de Rayyan + 1 de Cochrane excluidos con motivo "no AO"/"no clasiffication", pero usan TLICS o SLIC** — ambas son clasificaciones AO Spine explícitamente aceptadas por el protocolo (§4.1: *"Clasificación explícita AO Spine (CSISS, SLIC, AO TL TLICS)"*). Afectados: `RAY-12` (TLICS predictivo de complicaciones — coincide con el objetivo primario), `RAY-13`, `RAY-15`, `RAY-16`, `RAY-17`, `RAY-19` (SLIC asociado a complicaciones, p=0.000 — objetivo secundario), `COCH-01` (título menciona TLICS explícitamente).
+2. **`RAY-05` (CHILDSPINE, población pediátrica) quedó sin marcar** — falta una decisión explícita (es casi seguro Exclude, pero hay que cerrarlo para que los números de PRISMA cierren).
+3. **`RAY-35` excluido sin motivo registrado** — reporta distribución explícita por tipo AO (34 A / 27 B / 4 C de 65 pacientes) y grados ASIA pre/post — parece un candidato fuerte.
+4. **`COCH-02` incluido pero es solo un registro de ensayo** (ChiCTR2600128437, sin revista ni resultados publicados) — mismo tipo de registro que `COCH-08` (correctamente excluido) — confirmar si existe una publicación con resultados antes de incluirlo.
+5. **`COCH-03` y `COCH-04` pasaron de Exclude a Include**, revirtiendo dos evaluaciones independientes previas (la mía y la del PI) que los habían marcado como comparaciones de técnica sin desglose por subgrupo AO — confirmar si el texto completo sí lo desglosa.
+
+Ver el detalle completo con cita del protocolo en `screening/rayyan_37_consensus_final.csv` (columna `flag_review`) y las notas en `screening/screening_tracking_template.csv`.
 
 ## ⬜ En curso
 
-- **Screening de título/abstract en Rayyan** — los tres revisores deben evaluar los 37 registros de forma independiente (Include/Exclude/Maybe), **sin ver el borrador de Claude antes de su propia lectura** (para no perder independencia/masking). Ver `screening/README.md`.
-- **2° revisor independiente para los 10 registros de Cochrane CENTRAL** — usar `screening/screening_tracking_template.csv`.
+- Confirmar los 11 ítems de arriba con el equipo de revisores.
+- Una vez cerrado, actualizar el número final de "artículos a texto completo" en `screening/prisma_flow.html` (actualmente 15 = 11 Rayyan + 4 Cochrane, marcado como preliminar; podría subir a ~23 si se confirman las reclasificaciones).
 
 ## ✅ Bloqueadores resueltos
 
-1. **Protocolo EN vs. ES desincronizado** → resuelto. El español fue reescrito (markdown + `.docx`) para reflejar el mismo estado que el inglés: registrado en PROSPERO, agosto 2026, búsqueda completa en las 3 bases. Ver `protocol/README.md`.
-2. **Discrepancia numérica en el conteo de registros (60 vs. 37)** → resuelto y **el "37" original era correcto**: es el conteo real en Rayyan (verificado directamente contra `articles.ris`), no un error de transcripción como se pensó al principio.
-3. **Conteo de Cochrane CENTRAL: 9 vs. 10** → resuelto (confirmado por el PI): son **10**, no 9.
-4. **Números finales de identificación/screening** (verificados contra el export real de Rayyan, no solo declarados): 61 identificados (35 PubMed + 10 Cochrane + 16 LILACS), **14 duplicados** eliminados en el pool PubMed+LILACS (no 2, no 4 — corregido dos veces sobre la marcha), **37 en Rayyan**, **47 para screening en total** (37 Rayyan + 10 Cochrane manual). Actualizado en `search_strategy/search_strategies.md`, `screening/README.md` y `screening/prisma_flow.html`.
+1. **Protocolo EN vs. ES desincronizado** → resuelto.
+2. **Discrepancia numérica en el conteo de registros (60 vs. 37)** → resuelto, el "37" original era correcto.
+3. **Conteo de Cochrane CENTRAL: 9 vs. 10** → resuelto (son 10).
+4. **Números finales de identificación/screening** (verificados contra el export real de Rayyan): 61 identificados, 14 duplicados, 37 en Rayyan, 47 para screening en total.
 
 ## ⚠️ Pendiente del PI
 
-- `protocol/protocol_en.md` y `protocol/protocol_es.md` §5.1, tal como quedaron registrados en PROSPERO, todavía dicen Cochrane CENTRAL n=9 y total n=60. Decidir si esto amerita una enmienda formal en PROSPERO o si alcanza con documentar la discrepancia en la sección de métodos/PRISMA del manuscrito (es una corrección menor de conteo, no de elegibilidad ni de PICO). No toqué los `.docx`/`.md` del protocolo registrado hasta que decidas esto.
+- `protocol/protocol_en.md` y `protocol/protocol_es.md` §5.1, tal como quedaron registrados en PROSPERO, todavía dicen Cochrane CENTRAL n=9 y total n=60. Decidir si amerita una enmienda formal en PROSPERO o alcanza con documentar la discrepancia en el manuscrito.
 
 ## ⬜ Pendiente
 
-1. Screening texto completo (artículos que pasen el primer filtro) — `screening/fulltext_eligibility_template.csv`.
-2. Extracción de datos con el formulario estandarizado — `data_extraction/data_extraction_form.csv`.
-3. Evaluación de riesgo de sesgo (NOS / RoB 2.0) — `risk_of_bias/`.
-4. Análisis estadístico (R: `meta` + `metafor`, o RevMan 5.4) — `analysis/meta_analysis_template.R`.
-5. Redacción del manuscrito.
-6. Sometimiento a Global Spine Journal.
+1. Cerrar los 11 ítems marcados arriba.
+2. Screening texto completo de los artículos que pasen el primer filtro — `screening/fulltext_eligibility_template.csv`.
+3. Extracción de datos con el formulario estandarizado — `data_extraction/data_extraction_form.csv`.
+4. Evaluación de riesgo de sesgo (NOS / RoB 2.0) — `risk_of_bias/`.
+5. Análisis estadístico (R: `meta` + `metafor`, o RevMan 5.4) — `analysis/meta_analysis_template.R` (revisado y corregido, pendiente de probar con datos reales).
+6. Redacción del manuscrito.
+7. Sometimiento a Global Spine Journal.
 
 ## Próximo paso inmediato
 
-1. Screening de título/abstract de los **37 registros en Rayyan** por los tres revisores, de forma independiente (usar el borrador de Claude solo después, como chequeo o para destrabar desacuerdos).
-2. En paralelo, 2° revisor independiente para los **10 registros de Cochrane CENTRAL** (`screening/screening_tracking_template.csv`), y resolver por consenso o tercer revisor si hay desacuerdo con la 1ª pasada ya cargada.
-3. Decidir el punto de "Pendiente del PI" sobre la enmienda del protocolo registrado.
+1. Confirmar con el equipo los 11 ítems marcados como pendientes (arriba).
+2. Cerrar el número definitivo de "artículos a texto completo" y actualizar `prisma_flow.html`.
+3. Arrancar el screening de texto completo de esos artículos con `screening/fulltext_eligibility_template.csv`.
