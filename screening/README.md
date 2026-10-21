@@ -1,5 +1,7 @@
 # Screening
 
+**Title/abstract screening stage: CLOSED (confirmed by PI, 2026-10-21).** Final result: **15 records to full text** (11 Rayyan + 4 Cochrane), **32 excluded** (26 Rayyan + 6 Cochrane). See `rayyan_37_consensus_final.csv` and `screening_tracking_template.csv` for the final per-record decisions, and `PROGRESS.md` for the list of the 15. Next stage: full-text eligibility screening — see `fulltext_eligibility_template.csv` / `fulltext_eligibility_guide.md`.
+
 Primary screening tool: **Rayyan** (rayyan.ai) — title/abstract screening for the **37 records** in Rayyan (PubMed + LILACS, deduplicated). Verified directly against the Rayyan export in `rayyan_export/articles.ris`.
 
 `screening_tracking_template.csv` is a companion log, useful for:
@@ -31,18 +33,14 @@ Primary screening tool: **Rayyan** (rayyan.ai) — title/abstract screening for 
 
 See `search_strategy/search_strategies.md` for the full reconciliation (including a note on the registered PROSPERO protocol still showing the old n=9/60 figures), and `prisma_flow.html` for the flow diagram.
 
-## Cochrane CENTRAL manual screening — status
+## Final consensus — status (closed 2026-10-21)
 
-Title/abstract screening done by one reviewer (`screening_tracking_template.csv`, rows `COCH-01`–`COCH-10`):
-- **8 excluded** — mostly: doesn't use the AO Spine classification to predict outcomes, or is a trial registry without extractable outcome data.
-- **2 to full-text review** — `COCH-01` (TLICS, 2023 Türkiye earthquake cohort) and `COCH-10` (direct decompression for thoracolumbar burst fractures with neurological compromise).
+All 47 records (37 Rayyan + 10 Cochrane) have a final consensus decision from the 3 reviewers, confirmed by the PI:
+- **Cochrane (10):** 4 Include (`COCH-02`, `COCH-03`, `COCH-04`, `COCH-10`), 6 Exclude.
+- **Rayyan (37):** 11 Include, 26 Exclude.
 
-Still needed per protocol §6.1: a second, independent reviewer for these records, then consensus/third-reviewer for any disagreement.
+During reconciliation, 11 records were flagged for a second look (7 Rayyan + 1 Cochrane excluded as "no AO" despite using TLICS/SLIC — both accepted AO Spine systems per protocol §4.1; one pediatric record left unmarked; one exclusion with no reason despite reporting an AO-type breakdown; and two Cochrane records that reversed an earlier independent assessment). The PI reviewed all 11 and confirmed the team's original consensus decisions, closing the one unmarked record (`RAY-05`, pediatric) as Exclude. See `rayyan_37_consensus_final.csv` (`flag_review`/`flag_note` columns) for the full record of what was flagged and how it was resolved.
 
-## AI-assisted draft pass on the 37 Rayyan records
+## Historical: AI-assisted draft pass on the 37 Rayyan records
 
-`rayyan_37_ai_draft_screening.csv` has a title/abstract-level Include/Exclude/Maybe draft for all 37 records, with a one-line rationale per record, produced against protocol §4 eligibility criteria. Draft breakdown: **6 Include, 17 Exclude, 14 Maybe** (Maybe = needs full text, mostly single-technique studies where an AO/TLICS/SLIC subgroup is present but not clearly the analytic exposure).
-
-**Important for methodological integrity:** this is a speed-up aid, not one of the protocol's two required independent reviewers (§6.1).
-- Reviewers 1 and 2 should do their own independent Rayyan screening **without looking at this file first**, to preserve masking.
-- Afterward, use it as a third input when reconciling disagreements, or as a sanity check on the final Rayyan decisions — not as a substitute for a human third reviewer where the protocol calls for one.
+`rayyan_37_ai_draft_screening.csv` was a title/abstract-level Include/Exclude/Maybe draft produced before the reviewers' own independent screening, used only as a cross-check once their consensus came in — not as one of the protocol's two required independent reviewers (§6.1). Kept here for the audit trail.
