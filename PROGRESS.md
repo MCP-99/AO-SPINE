@@ -16,6 +16,7 @@ _Última actualización: 2026-11-18_
   - **6 pendientes de texto completo** (sin acceso abierto): `RAY-09` (Waterkeyn, solo abstract), `RAY-26` (Tee), `RAY-37` (Fleiderman — **prioridad**, todo Tipo C toracolumbar), `COCH-03` (El Hewala), `COCH-04` (Pandey), `COCH-02` (ChiCTR2600128437).
 - Infraestructura del repositorio: formulario de extracción de datos, templates de riesgo de sesgo (NOS / RoB 2.0), script R de metaanálisis — listos para la siguiente etapa.
 - **Extracción de datos — borrador de los 3 Include confirmados** (2026-11-18) — `data_extraction/data_extraction_form.csv`: Adegeest (3 filas, una por subgrupo A/B/C), Donnarumma (Tipo C, n=22), Zou (Tipo A3, n=43). Es un borrador a partir del resumen de Ignacio, no de los PDFs — varios campos de events/total quedaron en blanco con nota explicando qué dato exacto falta (ver abajo). Falta extracción NOS/RoB2 y segundo extractor.
+- **Borrador de manuscrito — Introducción y Métodos** (2026-11-18) — `manuscript/AO_Spine_manuscript_draft_intro_methods.docx`. Falta: número de registro PROSPERO (no está en ningún archivo del proyecto — agregar antes de enviar), Abstract, Resultados, Discusión, Conclusión y lista de referencias definitiva.
 
 ## 🔎 Hallazgo de búsqueda (2026-11-18): versión completa de El Hewala (COCH-03)
 
