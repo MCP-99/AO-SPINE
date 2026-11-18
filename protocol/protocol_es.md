@@ -65,6 +65,7 @@ Evaluar la validez predictiva de las clasificaciones AO Spine subaxial cervical 
 - Series de casos <20 pacientes, reportes de caso y cartas al editor.
 - Estudios que no permitan separar datos cervicales subaxiales de cervicales superiores (C0–C2).
 - Estudios exclusivamente pediátricos (<18 años).
+- Fracturas patológicas u osteoporóticas (no traumáticas).
 - Revisiones narrativas, editoriales, libros de texto.
 - Datos duplicados sin análisis separado por cohorte (se incluirá solo la publicación con mayor tamaño muestral o seguimiento).
 

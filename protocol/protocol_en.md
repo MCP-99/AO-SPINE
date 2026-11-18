@@ -65,6 +65,7 @@ To evaluate the predictive validity of the AO Spine subaxial cervical and thorac
 - Case series <20 patients, case reports, and letters to the editor.
 - Studies that do not allow separation of subaxial cervical from upper cervical data (C0–C2).
 - Exclusively pediatric studies (<18 years).
+- Pathological or osteoporotic fractures (non-traumatic).
 - Narrative reviews, editorials, textbooks.
 - Duplicate data without separate cohort analysis (only the publication with the largest sample size or longest follow-up will be included).
 
