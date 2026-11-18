@@ -15,6 +15,7 @@ _Última actualización: 2026-11-18_
   - **6 Exclude:** `RAY-03` (Shaharudin), `RAY-04` (Leidinger), `RAY-14` (Joaquim), `RAY-20` (Li), `RAY-29` (Bäcker), `COCH-10` (Jaiswal) — todos porque no diferencian el outcome por tipo AO (o no tienen clasificación propia), aunque sí usan AO Spine.
   - **6 pendientes de texto completo** (sin acceso abierto): `RAY-09` (Waterkeyn, solo abstract), `RAY-26` (Tee), `RAY-37` (Fleiderman — **prioridad**, todo Tipo C toracolumbar), `COCH-03` (El Hewala), `COCH-04` (Pandey), `COCH-02` (ChiCTR2600128437).
 - Infraestructura del repositorio: formulario de extracción de datos, templates de riesgo de sesgo (NOS / RoB 2.0), script R de metaanálisis — listos para la siguiente etapa.
+- **Extracción de datos — borrador de los 3 Include confirmados** (2026-11-18) — `data_extraction/data_extraction_form.csv`: Adegeest (3 filas, una por subgrupo A/B/C), Donnarumma (Tipo C, n=22), Zou (Tipo A3, n=43). Es un borrador a partir del resumen de Ignacio, no de los PDFs — varios campos de events/total quedaron en blanco con nota explicando qué dato exacto falta (ver abajo). Falta extracción NOS/RoB2 y segundo extractor.
 
 ## 🔎 Hallazgo de búsqueda (2026-11-18): versión completa de El Hewala (COCH-03)
 
@@ -46,6 +47,12 @@ Para los otros 5 pendientes (Waterkeyn, Tee, Fleiderman, Pandey, ChiCTR260012843
 | COCH-04 | Pandey | Pendiente |
 | COCH-10 | Jaiswal | Leído → Exclude |
 
+## ⚠️ Datos exactos pendientes de verificar en los 3 extraídos (tener el PDF a mano)
+
+- **Adegeest (3 filas, A/B/C):** falta el n y el n-con-complicación exactos por subgrupo AO (tabla 4 del PDF) — por ahora solo cargados los porcentajes (33%/35%/53%) y el OR multivariado de tipo C.
+- **Donnarumma (Tipo C, n=22):** falta el numerador exacto de "mejoró 45% al año" — el propio desglose Frankel final del artículo suma 8 de 10, no cierra, revisar con cuidado antes de cargarlo como evento/total.
+- **Zou (Tipo A3, n=43):** falta el n exacto de pacientes con déficit basal (no-E) para poder cargar neuro_recovery_events/total (el 100% de mejoría es sobre ese subgrupo, no sobre los 43 totales).
+
 ## ✅ Bloqueadores resueltos
 
 1. **Protocolo EN vs. ES desincronizado** → resuelto.
@@ -65,8 +72,20 @@ Para los otros 5 pendientes (Waterkeyn, Tee, Fleiderman, Pandey, ChiCTR260012843
 3. Extracción de datos de los 3 Include confirmados (Adegeest, Donnarumma, Zou) + los que se confirmen de los 6 pendientes — `data_extraction/data_extraction_form.csv`.
 4. Evaluación de riesgo de sesgo (NOS / RoB 2.0) — `risk_of_bias/`.
 5. Análisis estadístico (R: `meta` + `metafor`, o RevMan 5.4) — `analysis/meta_analysis_template.R` (revisado y corregido, pendiente de probar con datos reales).
-6. Redacción del manuscrito.
+6. Redacción del manuscrito — ver nota de timing abajo.
 7. Sometimiento a Global Spine Journal.
+
+## ¿Cuándo arrancar el escrito del manuscrito?
+
+**Ya se puede empezar (no dependen del resultado final):**
+- Introducción/Antecedentes — ya está básicamente redactada en `protocol/protocol_en.md` §1, solo adaptar al formato de manuscrito.
+- Métodos — también ya redactados en el protocolo (§4 a §8), con el diagrama PRISMA (`screening/prisma_flow.html`) como figura 1.
+
+**Todavía NO conviene escribir Resultados ni Discusión**, por dos motivos concretos:
+1. Solo hay 3 estudios con extracción (parcial) hecha; los 6 de texto completo pendientes pueden cambiar bastante el cuerpo de evidencia — en particular el Fleiderman, que es el único candidato a brazo Tipo C **toracolumbar** completo (Donnarumma es Tipo C pero cervical).
+2. Los 3 ya extraídos tienen números exactos pendientes de verificar (ver sección de arriba) — escribir Resultados con esos huecos obligaría a reescribir cuando se confirmen.
+
+Recomendación: adelantar Introducción y Métodos ahora si quieren, y recién armar Resultados/Discusión cuando se resuelvan los 6 pendientes y se verifiquen los números exactos de los 3 ya incluidos.
 
 ## Próximo paso inmediato
 
