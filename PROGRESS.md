@@ -30,6 +30,20 @@ _Última actualización: 2026-11-18_
 2. **Criterio de exclusión faltante:** el registro oficial excluye explícitamente **"fracturas patológicas u osteoporóticas"**, un criterio que no estaba en `protocol/protocol_en.md` ni `protocol_es.md` ni en la planilla de elegibilidad a texto completo. Ya lo agregué a los 3 lugares (`protocol/protocol_en.md`, `protocol_es.md` §4.2, `screening/fulltext_eligibility_guide.md` y columna nueva `crit_traumatic_ok` en `fulltext_eligibility_template.csv`). Los 3 Include ya confirmados (Adegeest, Donnarumma, Zou) parecen estar bien (todos describen mecanismo traumático), pero falta la confirmación explícita al tener el texto completo.
 3. **Desviación de protocolo a documentar:** PROSPERO lista EMBASE entre las fuentes planificadas de búsqueda, pero nunca se buscó ahí (falta de acceso institucional, como ya sabíamos). Esto hay que declararlo explícitamente como desviación del protocolo registrado en la sección de Métodos/Discusión del manuscrito (ya lo agregué al borrador) — es una práctica estándar y esperable en PRISMA, no hay que ocultarlo.
 
+## ⚠️ Nuevo hallazgo: ventana de seguimiento de Adegeest
+
+El protocolo (§4.1) exige **seguimiento mínimo de 3 meses** como criterio de inclusión. El outcome de Adegeest que estamos usando (complicaciones por tipo AO) se mide explícitamente **"hasta 30 días después de la cirugía"** — no hay un seguimiento más largo reportado en el artículo para ese outcome. Esto podría no cumplir, en sentido estricto, el criterio de seguimiento mínimo del protocolo.
+
+Es un tema de interpretación: el criterio de 3 meses tiene más sentido pensado para el outcome primario (recuperación neurológica), y "complicaciones quirúrgicas" suele medirse a 30 días por definición clínica estándar en toda la literatura (no sería razonable exigir 3 meses para medir una complicación perioperatoria). Pero como está escrito literalmente el protocolo, aplica a todos los outcomes. Lo dejo para que decidas vos: ¿interpretamos el criterio de seguimiento como aplicable solo al outcome primario, o excluimos a Adegeest por este motivo?
+
+## ⚠️ Riesgo de sesgo (NOS) — borrador para Zou y Donnarumma
+
+Hice un primer NOS para los 2 estudios sin problemas de elegibilidad pendientes (dejé Adegeest sin puntuar hasta resolver los 2 temas de arriba) — `risk_of_bias/NOS_cohort_template.csv`:
+- **Zou**: 8/9 (riesgo bajo-moderado). Comparativo (percutáneo vs. abierto, ambos Tipo A3), grupos balanceados en las variables basales.
+- **Donnarumma**: 5/9 (riesgo alto). Serie de un solo brazo sin grupo comparador — pierde los puntos de "selección de no-expuestos" y "comparabilidad" casi por definición, al no tener con qué comparar.
+
+Son borradores míos — el protocolo exige 2 evaluadores independientes con reconciliación (§7), igual que en el screening. Necesitan que alguien más (Matías, por ejemplo) los puntúe de forma independiente antes de darlos por cerrados.
+
 ## ⚠️ Nuevo bloqueador: Adegeest mezcla cervical y toracolumbar
 
 Leyendo el PDF completo del Adegeest encontré que la cohorte (n=394) es trauma espinal general de 2 centros holandeses: 241 cervicales + 91 torácicos + 62 lumbares, **sin separar el desglose de complicaciones por tipo AO (Table 4) por región**. Esto choca con el diseño del review, que analiza cervical subaxial y toracolumbar por separado.
@@ -115,6 +129,15 @@ Recomendación: adelantar Introducción y Métodos ahora si quieren, y recién a
 
 ## Próximo paso inmediato
 
-1. Gestionar con la biblioteca CEMIC los 6 pendientes (prioridad: Fleiderman).
-2. Para El Hewala, pedir específicamente la versión de 2019 en Egyptian Spine Journal (acceso abierto, no debería necesitar la biblioteca).
-3. Empezar la extracción de datos de los 3 artículos ya confirmados como Include.
+_(Actualizado 2026-11-18 — con el plazo de PROSPERO al 11/12/2026, ~3 semanas)_
+
+**4 decisiones tuyas, de las que depende seguir (en orden de impacto):**
+1. Adegeest mezcla cervical/toracolumbar — ¿sensibilidad combinada, excluir, o buscar tabla suplementaria?
+2. Adegeest mide complicaciones a 30 días — ¿el criterio de seguimiento ≥3 meses aplica solo al outcome primario, o lo excluye?
+3. COCH-02 (ChiCTR2600128437) — no encontré publicación de resultados vinculada; si la biblioteca tampoco la encuentra, se excluye por falta de datos extraíbles.
+4. Timeline PROSPERO (11/12/2026) — ¿acelerar o enmendar el registro?
+
+**Mientras tanto, esto sigue en paralelo sin esperar nada:**
+- Gestionar con la biblioteca CEMIC los 5 pendientes restantes (Waterkeyn, Tee, Fleiderman —prioridad—, Pandey, y el ChiCTR si corresponde).
+- El Hewala: pedir específicamente la versión de 2019 en Egyptian Spine Journal (acceso abierto, no debería necesitar biblioteca).
+- 2° evaluador (Matías u otro) para el NOS de Zou y Donnarumma, y 2° extractor para verificar los 3 ya cargados — el protocolo pide ambos pasos con 2 personas independientes.
