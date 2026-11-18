@@ -5,139 +5,83 @@ _Última actualización: 2026-11-18_
 ## ✅ Completado
 
 - Propuesta y PICO definidos (bloqueado, ver `protocol/protocol_en.md` §3).
-- Protocolo PROSPERO redactado y registrado, **inglés y español sincronizados** (`protocol/protocol_en.md`, `protocol/protocol_es.md`).
+- Protocolo PROSPERO redactado y registrado, **inglés y español sincronizados** (`protocol/protocol_en.md`, `protocol/protocol_es.md`). Registro oficial: **CRD420261419101** (`protocol/PROSPERO_registration_CRD420261419101.pdf`), registrado 18/06/2026.
 - Estrategia de búsqueda ejecutada en 3 bases de datos (PubMed/MEDLINE, Cochrane CENTRAL, LILACS).
 - Importación a Rayyan: **37 registros** (PubMed + LILACS, deduplicados).
 - **Screening de título/abstract CERRADO** (confirmado por el PI, 2026-10-21) — 15 artículos pasaron a texto completo, 32 excluidos.
 - Lista de los 15 en formato Vancouver enviada a la biblioteca CEMIC (`screening/fulltext_request_list_vancouver.md`).
-- **Screening de texto completo — 9 de 15 revisados por Ignacio** (2026-11-18) — `screening/Planilla_AO_9_articulos.xlsx`, consolidado en `screening/fulltext_eligibility_template.csv`:
-  - **3 Include:** `RAY-06` (Adegeest — complicaciones por tipo AO), `RAY-25` (Donnarumma — Tipo C cervical, brazo único), `RAY-30` (Zou — Tipo A3, brazo único).
-  - **6 Exclude:** `RAY-03` (Shaharudin), `RAY-04` (Leidinger), `RAY-14` (Joaquim), `RAY-20` (Li), `RAY-29` (Bäcker), `COCH-10` (Jaiswal) — todos porque no diferencian el outcome por tipo AO (o no tienen clasificación propia), aunque sí usan AO Spine.
-  - **6 pendientes de texto completo** (sin acceso abierto): `RAY-09` (Waterkeyn, solo abstract), `RAY-26` (Tee), `RAY-37` (Fleiderman — **prioridad**, todo Tipo C toracolumbar), `COCH-03` (El Hewala), `COCH-04` (Pandey), `COCH-02` (ChiCTR2600128437).
-- Infraestructura del repositorio: formulario de extracción de datos, templates de riesgo de sesgo (NOS / RoB 2.0), script R de metaanálisis — listos para la siguiente etapa.
-- **Extracción de datos — borrador de los 3 Include confirmados** (2026-11-18) — `data_extraction/data_extraction_form.csv`: Adegeest (3 filas, una por subgrupo A/B/C), Donnarumma (Tipo C, n=22), Zou (Tipo A3, n=43). Es un borrador a partir del resumen de Ignacio, no de los PDFs — varios campos de events/total quedaron en blanco con nota explicando qué dato exacto falta (ver abajo). Falta extracción NOS/RoB2 y segundo extractor.
-- **Extracción de datos — VERIFICADA contra los 3 PDFs completos** (2026-11-18) — `screening/fulltext_pdfs/` tiene los 3 PDFs guardados. Números exactos confirmados:
-  - **Adegeest** (Table 4 y Table 6 del PDF): complicaciones a 30 días por tipo AO — A 40/121 (33.1%), B 34/97 (35.1%), C 55/103 (53.4%), p=0.009. OR ajustado (Tipo C vs. A+B combinados) 2.13 (IC95% 1.11-4.14) p=0.024. **⚠️ Ver bloqueador nuevo abajo — cohorte mezcla cervical y toracolumbar.**
-  - **Donnarumma**: confirmado 10/22 (45%) con mejoría neurológica a 1 año. El propio artículo tiene una inconsistencia interna (el desglose "2 grados en 4 + 1 grado en 4" solo suma 8, no 10) — no es error nuestro, y no se puede resolver contactando autores (PROSPERO lo prohíbe explícitamente). Usamos la cifra principal (10/22).
-  - **Zou**: reconstruido con Table 2 del PDF — de los 28 pacientes con déficit basal (5 Grado C + 23 Grado D, ambos grupos combinados), los 28 mejoraron ≥1 grado (100%, nadie empeoró) — confirma exactamente lo que habías leído.
-- Falta todavía: extracción NOS/RoB2 y segundo extractor independiente para estos 3 (protocolo exige 2 extractores con reconciliación).
-- **Borrador de manuscrito — Introducción y Métodos** (2026-11-18) — `manuscript/AO_Spine_manuscript_draft_intro_methods.docx`. Actualizado con el número de registro real de PROSPERO. Falta: Abstract, Resultados, Discusión, Conclusión y lista de referencias definitiva.
-- **PDF oficial de registro PROSPERO recibido y cargado** (2026-11-18) — `protocol/PROSPERO_registration_CRD420261419101.pdf`. Registro: **CRD420261419101**, registrado 18/06/2026 (primer envío 11/06/2026).
+- Infraestructura del repositorio: formulario de extracción de datos, templates de riesgo de sesgo (NOS / RoB 2.0), script R de metaanálisis, planilla de elegibilidad a texto completo.
+- **Borrador de manuscrito — Introducción y Métodos** — `manuscript/AO_Spine_manuscript_draft_intro_methods.docx`.
 
-## 🚨 3 hallazgos importantes del PDF de PROSPERO (2026-11-18)
+## Screening de texto completo — estado (15 artículos)
 
-1. **URGENTE — plazo del review:** la fecha de fin registrada en PROSPERO es **11 de diciembre de 2026**. Hoy (18/11/2026) quedan ~3 semanas y todavía faltan: 6 textos completos, extracción de datos completa, riesgo de sesgo, síntesis estadística y el manuscrito entero. Con este ritmo no se llega. Opciones: acelerar fuerte, o enmendar el timeline en PROSPERO (se puede actualizar el registro, PROSPERO lo permite y queda versionado) — decisión del PI.
-2. **Criterio de exclusión faltante:** el registro oficial excluye explícitamente **"fracturas patológicas u osteoporóticas"**, un criterio que no estaba en `protocol/protocol_en.md` ni `protocol_es.md` ni en la planilla de elegibilidad a texto completo. Ya lo agregué a los 3 lugares (`protocol/protocol_en.md`, `protocol_es.md` §4.2, `screening/fulltext_eligibility_guide.md` y columna nueva `crit_traumatic_ok` en `fulltext_eligibility_template.csv`). Los 3 Include ya confirmados (Adegeest, Donnarumma, Zou) parecen estar bien (todos describen mecanismo traumático), pero falta la confirmación explícita al tener el texto completo.
-3. **Desviación de protocolo a documentar:** PROSPERO lista EMBASE entre las fuentes planificadas de búsqueda, pero nunca se buscó ahí (falta de acceso institucional, como ya sabíamos). Esto hay que declararlo explícitamente como desviación del protocolo registrado en la sección de Métodos/Discusión del manuscrito (ya lo agregué al borrador) — es una práctica estándar y esperable en PRISMA, no hay que ocultarlo.
+| ID | Autor | Decisión | Nota |
+|---|---|---|---|
+| RAY-03 | Shaharudin | Exclude | No diferencia resultado por tipo AO |
+| RAY-04 | Leidinger | Exclude | No diferencia resultado por tipo AO |
+| RAY-06 | Adegeest | **Include** | ⚠️ 2 temas abiertos, ver abajo |
+| RAY-09 | Waterkeyn | Pendiente | Ignacio consigue el PDF |
+| RAY-14 | Joaquim | Exclude | No diferencia resultado por tipo AO |
+| RAY-20 | Li | Exclude | No diferencia resultado por tipo AO |
+| RAY-25 | Donnarumma | **Include** | Extraído y verificado contra el PDF |
+| RAY-26 | Tee | Pendiente | Ignacio consigue el PDF |
+| RAY-29 | Bäcker | Exclude | No diferencia resultado por tipo AO |
+| RAY-30 | Zou | **Include** | Extraído y verificado contra el PDF |
+| RAY-37 | Fleiderman | Pendiente | **Prioridad** — único candidato a Tipo C toracolumbar completo |
+| COCH-02 | ChiCTR2600128437 | **Exclude** (2026-11-18) | Confirmado por el PI — registro de ensayo sin publicación de resultados |
+| COCH-03 | El Hewala | Pendiente | Versión completa 2019 localizada, acceso abierto — ver nota abajo |
+| COCH-04 | Pandey | Pendiente | Ignacio consigue el PDF |
+| COCH-10 | Jaiswal | Exclude | No diferencia resultado por tipo AO |
 
-## ⚠️ Nuevo hallazgo: ventana de seguimiento de Adegeest
+**Resumen: 3 Include, 7 Exclude, 5 pendientes** (Waterkeyn, Tee, Fleiderman, El Hewala, Pandey — **Ignacio los está consiguiendo directamente**, no hace falta que yo siga buscando acceso abierto).
 
-El protocolo (§4.1) exige **seguimiento mínimo de 3 meses** como criterio de inclusión. El outcome de Adegeest que estamos usando (complicaciones por tipo AO) se mide explícitamente **"hasta 30 días después de la cirugía"** — no hay un seguimiento más largo reportado en el artículo para ese outcome. Esto podría no cumplir, en sentido estricto, el criterio de seguimiento mínimo del protocolo.
+### Nota — El Hewala (COCH-03)
 
-Es un tema de interpretación: el criterio de 3 meses tiene más sentido pensado para el outcome primario (recuperación neurológica), y "complicaciones quirúrgicas" suele medirse a 30 días por definición clínica estándar en toda la literatura (no sería razonable exigir 3 meses para medir una complicación perioperatoria). Pero como está escrito literalmente el protocolo, aplica a todos los outcomes. Lo dejo para que decidas vos: ¿interpretamos el criterio de seguimiento como aplicable solo al outcome primario, o excluimos a Adegeest por este motivo?
+El abstract de congreso que teníamos (Global Spine J. 2017;7(2 Suppl):53S) es la versión preliminar. Hay una versión completa, de acceso abierto:
 
-## ⚠️ Riesgo de sesgo (NOS) — borrador para Zou y Donnarumma
+> ElHewala T, ElAdawy A. Could Intermediate Screw in Thoracolumbar Fracture Fixation Save Motion Levels? Egyptian Spine Journal. 2019;30(1):2-11. doi:10.21608/ESJ.2019.10129.1092 — DOAJ, n=50 (25+25), 2009-2014.
 
-Hice un primer NOS para los 2 estudios sin problemas de elegibilidad pendientes (dejé Adegeest sin puntuar hasta resolver los 2 temas de arriba) — `risk_of_bias/NOS_cohort_template.csv`:
-- **Zou**: 8/9 (riesgo bajo-moderado). Comparativo (percutáneo vs. abierto, ambos Tipo A3), grupos balanceados en las variables basales.
-- **Donnarumma**: 5/9 (riesgo alto). Serie de un solo brazo sin grupo comparador — pierde los puntos de "selección de no-expuestos" y "comparabilidad" casi por definición, al no tener con qué comparar.
+Por la regla de datos duplicados del protocolo (§4.2: usar la publicación con mayor n/seguimiento), usar esta versión en vez del abstract de 2017.
 
-Son borradores míos — el protocolo exige 2 evaluadores independientes con reconciliación (§7), igual que en el screening. Necesitan que alguien más (Matías, por ejemplo) los puntúe de forma independiente antes de darlos por cerrados.
+## Extracción de datos — 3 Include, verificada contra los PDFs completos
 
-## ⚠️ Nuevo bloqueador: Adegeest mezcla cervical y toracolumbar
+`data_extraction/data_extraction_form.csv` (PDFs en `screening/fulltext_pdfs/`):
 
-Leyendo el PDF completo del Adegeest encontré que la cohorte (n=394) es trauma espinal general de 2 centros holandeses: 241 cervicales + 91 torácicos + 62 lumbares, **sin separar el desglose de complicaciones por tipo AO (Table 4) por región**. Esto choca con el diseño del review, que analiza cervical subaxial y toracolumbar por separado.
+- **Adegeest** (Table 4 y 6 del PDF): complicaciones a 30 días por tipo AO — A 40/121 (33.1%), B 34/97 (35.1%), C 55/103 (53.4%), p=0.009. OR ajustado (Tipo C vs. A+B) 2.13 (IC95% 1.11-4.14) p=0.024. **⚠️ 2 temas abiertos — ver "Decisiones pendientes" abajo.**
+- **Donnarumma**: 10/22 (45%) con mejoría neurológica a 1 año. El propio artículo tiene una inconsistencia interna (el desglose "2 grados en 4 + 1 grado en 4" solo suma 8, no 10) — no es error nuestro, no resoluble (PROSPERO prohíbe contactar autores). Usamos la cifra principal (10/22).
+- **Zou**: de los 28 pacientes con déficit basal, los 28 mejoraron ≥1 grado (100%, nadie empeoró) — reconstruido y confirmado con Table 2 del PDF.
 
-Dos problemas concretos:
-1. No hay forma de saber, con lo que está en el texto principal, si los 40/121 (Tipo A), 34/97 (Tipo B), 55/103 (Tipo C) con complicaciones son todos cervicales, todos toracolumbares, o una mezcla — no se puede asignar esta fila a un solo "spinal_region" en la extracción.
-2. Tampoco se puede confirmar si "Cervical" en este estudio excluye los niveles C0-C2 (cervical superior) — uno de los criterios de exclusión del protocolo.
+**Riesgo de sesgo (NOS), borrador:**
+- Zou: 8/9 (riesgo bajo-moderado).
+- Donnarumma: 5/9 (riesgo alto — serie de un solo brazo, sin comparador).
+- Adegeest: sin puntuar, pendiente de resolver los temas abiertos.
 
-**No lo excluí ni lo recategoricé por mi cuenta** — lo dejé marcado como `mixed_cervical_thoracolumbar` en `data_extraction_form.csv` con nota explicando el problema. Opciones para decidir:
-- Revisar si el PDF tiene una tabla suplementaria (no incluida en lo que subiste) que desglose por región.
-- Si no la hay, usarlo solo en un análisis de sensibilidad "todas las regiones combinadas", separado del análisis principal por región.
-- Excluirlo si se considera que no cumple el criterio de separación C0-C2/subaxial.
+**Pendiente para los 3:** segundo evaluador/extractor independiente (protocolo §6.2 y §7 piden 2 personas con reconciliación).
 
-## 🔎 Hallazgo de búsqueda (2026-11-18): versión completa de El Hewala (COCH-03)
+## ⚠️ Decisiones pendientes del PI
 
-El abstract de congreso que teníamos (Global Spine J. 2017;7(2 Suppl):53S) es la versión preliminar. El estudio se publicó completo y es de **acceso abierto**:
-
-> ElHewala T, ElAdawy A. Could Intermediate Screw in Thoracolumbar Fracture Fixation Save Motion Levels? Comparative Study between Long-Segment and Short-Segment with Intermediate Screw Fixation. Egyptian Spine Journal. 2019;30(1):2-11. doi:10.21608/ESJ.2019.10129.1092 — DOAJ, n=50 (25+25), 2009-2014.
-
-Por la regla de datos duplicados del protocolo (§4.2: usar la publicación con mayor n/seguimiento), **usar esta versión en vez del abstract de 2017** para el screening de texto completo y la extracción de datos.
-
-Para los otros 5 pendientes (Waterkeyn, Tee, Fleiderman, Pandey, ChiCTR2600128437) se buscó una versión de acceso abierto y no se encontró — quedan a la espera de la biblioteca CEMIC.
-
-## Artículos que pasan a texto completo (15) — estado
-
-| ID | Autor | Estado texto completo |
-|---|---|---|
-| RAY-03 | Shaharudin | Leído → Exclude |
-| RAY-04 | Leidinger | Leído → Exclude |
-| RAY-06 | Adegeest | Leído → **Include** |
-| RAY-09 | Waterkeyn | Pendiente (solo abstract) |
-| RAY-14 | Joaquim | Leído → Exclude |
-| RAY-20 | Li | Leído → Exclude |
-| RAY-25 | Donnarumma | Leído → **Include** |
-| RAY-26 | Tee | Pendiente |
-| RAY-29 | Bäcker | Leído → Exclude |
-| RAY-30 | Zou | Leído → **Include** |
-| RAY-37 | Fleiderman | Pendiente — **prioridad** |
-| COCH-02 | ChiCTR2600128437 | Pendiente (registro de ensayo) |
-| COCH-03 | El Hewala | Pendiente — versión completa localizada (ver arriba) |
-| COCH-04 | Pandey | Pendiente |
-| COCH-10 | Jaiswal | Leído → Exclude |
-
-## ⚠️ Datos exactos pendientes de verificar en los 3 extraídos (tener el PDF a mano)
-
-- **Adegeest (3 filas, A/B/C):** falta el n y el n-con-complicación exactos por subgrupo AO (tabla 4 del PDF) — por ahora solo cargados los porcentajes (33%/35%/53%) y el OR multivariado de tipo C.
-- **Donnarumma (Tipo C, n=22):** falta el numerador exacto de "mejoró 45% al año" — el propio desglose Frankel final del artículo suma 8 de 10, no cierra, revisar con cuidado antes de cargarlo como evento/total.
-- **Zou (Tipo A3, n=43):** falta el n exacto de pacientes con déficit basal (no-E) para poder cargar neuro_recovery_events/total (el 100% de mejoría es sobre ese subgrupo, no sobre los 43 totales).
-
-## ✅ Bloqueadores resueltos
-
-1. **Protocolo EN vs. ES desincronizado** → resuelto.
-2. **Discrepancia numérica en el conteo de registros (60 vs. 37)** → resuelto, el "37" original era correcto.
-3. **Conteo de Cochrane CENTRAL: 9 vs. 10** → resuelto (son 10).
-4. **Números finales de identificación/screening**: 61 identificados, 14 duplicados, 37 en Rayyan, 47 para screening en total.
-5. **Screening de título/abstract** → cerrado y confirmado por el PI.
-
-## ⚠️ Pendiente del PI
-
-- `protocol/protocol_en.md` y `protocol/protocol_es.md` §5.1, tal como quedaron registrados en PROSPERO, todavía dicen Cochrane CENTRAL n=9 y total n=60. Decidir si amerita una enmienda formal en PROSPERO o alcanza con documentar la discrepancia en el manuscrito.
-
-## ⬜ Pendiente
-
-1. Conseguir texto completo de los 6 pendientes (biblioteca CEMIC; Fleiderman es prioridad).
-2. Cerrar el screening de texto completo de esos 6.
-3. Extracción de datos de los 3 Include confirmados (Adegeest, Donnarumma, Zou) + los que se confirmen de los 6 pendientes — `data_extraction/data_extraction_form.csv`.
-4. Evaluación de riesgo de sesgo (NOS / RoB 2.0) — `risk_of_bias/`.
-5. Análisis estadístico (R: `meta` + `metafor`, o RevMan 5.4) — `analysis/meta_analysis_template.R` (revisado y corregido, pendiente de probar con datos reales).
-6. Redacción del manuscrito — ver nota de timing abajo.
-7. Sometimiento a Global Spine Journal.
+1. **Adegeest mezcla cervical y toracolumbar** — la cohorte (n=394: 241 cervical + 91 torácico + 62 lumbar) no desglosa las complicaciones por tipo AO (Table 4) por región, y no se puede confirmar si "cervical" excluye C0-C2. Opciones: buscar tabla suplementaria, usar solo en análisis de sensibilidad combinado, o excluir.
+2. **Adegeest mide complicaciones a 30 días**, y el protocolo exige seguimiento mínimo de 3 meses (§4.1). ¿Ese criterio aplica solo al outcome primario (recuperación neurológica), o también excluye este outcome secundario?
+3. **Timeline de PROSPERO**: fecha de fin registrada **11 de diciembre de 2026** (~3 semanas desde hoy), con 5 textos completos, extracción, riesgo de sesgo, síntesis y manuscrito todavía pendientes. ¿Acelerar o enmendar el registro en PROSPERO?
+4. **Protocolo EN vs. ES**: ambos siguen diciendo Cochrane CENTRAL n=9 y total n=60 (el real es n=10/61, ver `search_strategy/search_strategies.md`). ¿Enmienda formal en PROSPERO o alcanza con documentarlo en el manuscrito?
 
 ## ¿Cuándo arrancar el escrito del manuscrito?
 
-**Ya se puede empezar (no dependen del resultado final):**
-- Introducción/Antecedentes — ya está básicamente redactada en `protocol/protocol_en.md` §1, solo adaptar al formato de manuscrito.
-- Métodos — también ya redactados en el protocolo (§4 a §8), con el diagrama PRISMA (`screening/prisma_flow.html`) como figura 1.
+**Ya se puede avanzar:** Introducción y Métodos (ya redactados, ver `manuscript/AO_Spine_manuscript_draft_intro_methods.docx`).
 
-**Todavía NO conviene escribir Resultados ni Discusión**, por dos motivos concretos:
-1. Solo hay 3 estudios con extracción (parcial) hecha; los 6 de texto completo pendientes pueden cambiar bastante el cuerpo de evidencia — en particular el Fleiderman, que es el único candidato a brazo Tipo C **toracolumbar** completo (Donnarumma es Tipo C pero cervical).
-2. Los 3 ya extraídos tienen números exactos pendientes de verificar (ver sección de arriba) — escribir Resultados con esos huecos obligaría a reescribir cuando se confirmen.
+**Todavía NO conviene escribir Resultados ni Discusión** — solo 3 de 15 estudios están extraídos, y el Fleiderman (pendiente, prioridad) es el único candidato a brazo Tipo C **toracolumbar** completo; podría cambiar bastante el cuerpo de evidencia.
 
-Recomendación: adelantar Introducción y Métodos ahora si quieren, y recién armar Resultados/Discusión cuando se resuelvan los 6 pendientes y se verifiquen los números exactos de los 3 ya incluidos.
+## ⬜ Pendiente
+
+1. Conseguir texto completo de los 5 restantes (Ignacio, directamente).
+2. Cerrar el screening de texto completo de esos 5.
+3. Extracción de datos + NOS/RoB2 de lo que se confirme — con segundo evaluador independiente.
+4. Análisis estadístico (`analysis/meta_analysis_template.R`, revisado pero no corrido con datos reales).
+5. Resultados, Discusión, Conclusión del manuscrito.
+6. Sometimiento a Global Spine Journal.
 
 ## Próximo paso inmediato
 
-_(Actualizado 2026-11-18 — con el plazo de PROSPERO al 11/12/2026, ~3 semanas)_
-
-**4 decisiones tuyas, de las que depende seguir (en orden de impacto):**
-1. Adegeest mezcla cervical/toracolumbar — ¿sensibilidad combinada, excluir, o buscar tabla suplementaria?
-2. Adegeest mide complicaciones a 30 días — ¿el criterio de seguimiento ≥3 meses aplica solo al outcome primario, o lo excluye?
-3. COCH-02 (ChiCTR2600128437) — no encontré publicación de resultados vinculada; si la biblioteca tampoco la encuentra, se excluye por falta de datos extraíbles.
-4. Timeline PROSPERO (11/12/2026) — ¿acelerar o enmendar el registro?
-
-**Mientras tanto, esto sigue en paralelo sin esperar nada:**
-- Gestionar con la biblioteca CEMIC los 5 pendientes restantes (Waterkeyn, Tee, Fleiderman —prioridad—, Pandey, y el ChiCTR si corresponde).
-- El Hewala: pedir específicamente la versión de 2019 en Egyptian Spine Journal (acceso abierto, no debería necesitar biblioteca).
-- 2° evaluador (Matías u otro) para el NOS de Zou y Donnarumma, y 2° extractor para verificar los 3 ya cargados — el protocolo pide ambos pasos con 2 personas independientes.
+1. Ignacio consigue los 5 PDFs restantes.
+2. Mientras tanto, decidir los 4 puntos de arriba (región de Adegeest, ventana de seguimiento, timeline PROSPERO, enmienda EN/ES).
+3. Conseguir un segundo evaluador (Matías u otro) para el NOS y la extracción de los 3 ya cargados.
