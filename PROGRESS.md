@@ -16,6 +16,11 @@ _Última actualización: 2026-11-18_
   - **6 pendientes de texto completo** (sin acceso abierto): `RAY-09` (Waterkeyn, solo abstract), `RAY-26` (Tee), `RAY-37` (Fleiderman — **prioridad**, todo Tipo C toracolumbar), `COCH-03` (El Hewala), `COCH-04` (Pandey), `COCH-02` (ChiCTR2600128437).
 - Infraestructura del repositorio: formulario de extracción de datos, templates de riesgo de sesgo (NOS / RoB 2.0), script R de metaanálisis — listos para la siguiente etapa.
 - **Extracción de datos — borrador de los 3 Include confirmados** (2026-11-18) — `data_extraction/data_extraction_form.csv`: Adegeest (3 filas, una por subgrupo A/B/C), Donnarumma (Tipo C, n=22), Zou (Tipo A3, n=43). Es un borrador a partir del resumen de Ignacio, no de los PDFs — varios campos de events/total quedaron en blanco con nota explicando qué dato exacto falta (ver abajo). Falta extracción NOS/RoB2 y segundo extractor.
+- **Extracción de datos — VERIFICADA contra los 3 PDFs completos** (2026-11-18) — `screening/fulltext_pdfs/` tiene los 3 PDFs guardados. Números exactos confirmados:
+  - **Adegeest** (Table 4 y Table 6 del PDF): complicaciones a 30 días por tipo AO — A 40/121 (33.1%), B 34/97 (35.1%), C 55/103 (53.4%), p=0.009. OR ajustado (Tipo C vs. A+B combinados) 2.13 (IC95% 1.11-4.14) p=0.024. **⚠️ Ver bloqueador nuevo abajo — cohorte mezcla cervical y toracolumbar.**
+  - **Donnarumma**: confirmado 10/22 (45%) con mejoría neurológica a 1 año. El propio artículo tiene una inconsistencia interna (el desglose "2 grados en 4 + 1 grado en 4" solo suma 8, no 10) — no es error nuestro, y no se puede resolver contactando autores (PROSPERO lo prohíbe explícitamente). Usamos la cifra principal (10/22).
+  - **Zou**: reconstruido con Table 2 del PDF — de los 28 pacientes con déficit basal (5 Grado C + 23 Grado D, ambos grupos combinados), los 28 mejoraron ≥1 grado (100%, nadie empeoró) — confirma exactamente lo que habías leído.
+- Falta todavía: extracción NOS/RoB2 y segundo extractor independiente para estos 3 (protocolo exige 2 extractores con reconciliación).
 - **Borrador de manuscrito — Introducción y Métodos** (2026-11-18) — `manuscript/AO_Spine_manuscript_draft_intro_methods.docx`. Actualizado con el número de registro real de PROSPERO. Falta: Abstract, Resultados, Discusión, Conclusión y lista de referencias definitiva.
 - **PDF oficial de registro PROSPERO recibido y cargado** (2026-11-18) — `protocol/PROSPERO_registration_CRD420261419101.pdf`. Registro: **CRD420261419101**, registrado 18/06/2026 (primer envío 11/06/2026).
 
@@ -24,6 +29,19 @@ _Última actualización: 2026-11-18_
 1. **URGENTE — plazo del review:** la fecha de fin registrada en PROSPERO es **11 de diciembre de 2026**. Hoy (18/11/2026) quedan ~3 semanas y todavía faltan: 6 textos completos, extracción de datos completa, riesgo de sesgo, síntesis estadística y el manuscrito entero. Con este ritmo no se llega. Opciones: acelerar fuerte, o enmendar el timeline en PROSPERO (se puede actualizar el registro, PROSPERO lo permite y queda versionado) — decisión del PI.
 2. **Criterio de exclusión faltante:** el registro oficial excluye explícitamente **"fracturas patológicas u osteoporóticas"**, un criterio que no estaba en `protocol/protocol_en.md` ni `protocol_es.md` ni en la planilla de elegibilidad a texto completo. Ya lo agregué a los 3 lugares (`protocol/protocol_en.md`, `protocol_es.md` §4.2, `screening/fulltext_eligibility_guide.md` y columna nueva `crit_traumatic_ok` en `fulltext_eligibility_template.csv`). Los 3 Include ya confirmados (Adegeest, Donnarumma, Zou) parecen estar bien (todos describen mecanismo traumático), pero falta la confirmación explícita al tener el texto completo.
 3. **Desviación de protocolo a documentar:** PROSPERO lista EMBASE entre las fuentes planificadas de búsqueda, pero nunca se buscó ahí (falta de acceso institucional, como ya sabíamos). Esto hay que declararlo explícitamente como desviación del protocolo registrado en la sección de Métodos/Discusión del manuscrito (ya lo agregué al borrador) — es una práctica estándar y esperable en PRISMA, no hay que ocultarlo.
+
+## ⚠️ Nuevo bloqueador: Adegeest mezcla cervical y toracolumbar
+
+Leyendo el PDF completo del Adegeest encontré que la cohorte (n=394) es trauma espinal general de 2 centros holandeses: 241 cervicales + 91 torácicos + 62 lumbares, **sin separar el desglose de complicaciones por tipo AO (Table 4) por región**. Esto choca con el diseño del review, que analiza cervical subaxial y toracolumbar por separado.
+
+Dos problemas concretos:
+1. No hay forma de saber, con lo que está en el texto principal, si los 40/121 (Tipo A), 34/97 (Tipo B), 55/103 (Tipo C) con complicaciones son todos cervicales, todos toracolumbares, o una mezcla — no se puede asignar esta fila a un solo "spinal_region" en la extracción.
+2. Tampoco se puede confirmar si "Cervical" en este estudio excluye los niveles C0-C2 (cervical superior) — uno de los criterios de exclusión del protocolo.
+
+**No lo excluí ni lo recategoricé por mi cuenta** — lo dejé marcado como `mixed_cervical_thoracolumbar` en `data_extraction_form.csv` con nota explicando el problema. Opciones para decidir:
+- Revisar si el PDF tiene una tabla suplementaria (no incluida en lo que subiste) que desglose por región.
+- Si no la hay, usarlo solo en un análisis de sensibilidad "todas las regiones combinadas", separado del análisis principal por región.
+- Excluirlo si se considera que no cumple el criterio de separación C0-C2/subaxial.
 
 ## 🔎 Hallazgo de búsqueda (2026-11-18): versión completa de El Hewala (COCH-03)
 
